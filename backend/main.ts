@@ -1,6 +1,8 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
-
+// https://www.robinwieruch.de/deno-oak-rest-api/
+const port = 8000;
 const app = new Application();
+const router = new Router();
 
 // Timing
 app.use(async (ctx, next) => {
@@ -11,8 +13,7 @@ app.use(async (ctx, next) => {
 });
 
 // Hello World!
-const router = new Router();
-router.get("/", (ctx) => {
+router.get("/hello", (ctx) => {
   ctx.response.body = `<!DOCTYPE html>
     <html>
       <head><title>Hello oak!</title><head>
@@ -23,11 +24,29 @@ router.get("/", (ctx) => {
   `;
 });
 
-router.post("/post", (ctx) => {
 
+router.get('/', (ctx) => {
+  ctx.response.body = 'Received a GET HTTP method';
 });
+
+router.post('/', (ctx) => {
+  ctx.response.body = 'Received a POST HTTP method';
+});
+
+router.put('/', (ctx) => {
+  ctx.response.body = 'Received a PUT HTTP method';
+});
+
+router.delete('/', (ctx) => {
+  ctx.response.body = 'Received a DELETE HTTP method';
+});
+
 
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-await app.listen({ port: 8000 });
+app.addEventListener('listen', () => {
+  console.log(`Listening on: localhost:${port}`);
+});
+
+await app.listen({ port: port });
