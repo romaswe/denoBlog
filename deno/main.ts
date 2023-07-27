@@ -15,13 +15,13 @@ app.use(async (ctx, next) => {
   ctx.response.headers.set("X-Response-Time", `${ms}ms`);
 });
 
-app.use(apiRouter.posts.allowedMethods())
-app.use(apiRouter.posts.routes())
+app.use(apiRouter.posts.allowedMethods());
+app.use(apiRouter.posts.routes());
 
-app.use(appRouter.views.allowedMethods())
-app.use(appRouter.views.routes())
+app.use(appRouter.views.allowedMethods());
+app.use(appRouter.views.routes());
 
-app.addEventListener('listen', () => {
+app.addEventListener("listen", () => {
   console.log(`Listening on: localhost:${port}`);
 });
 

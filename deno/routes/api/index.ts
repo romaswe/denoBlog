@@ -1,5 +1,5 @@
-import posts from './posts.ts';
+import posts from "./posts.ts";
 
 export default {
-    posts,
+  posts,
 };

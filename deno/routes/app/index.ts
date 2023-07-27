@@ -1,5 +1,5 @@
-import views from './views.ts';
+import views from "./views.ts";
 
 export default {
-    views,
+  views,
 };
