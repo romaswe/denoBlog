@@ -1,4 +1,4 @@
-import { Router, helpers } from "https://deno.land/x/oak@v12.6.0/mod.ts";
+import { Router, helpers } from "../../deps.ts"
 const router = new Router();
 
 const pathPrefix = "/api/posts"
