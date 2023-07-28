@@ -7,6 +7,10 @@ import appRouter from "./routes/app/index.ts";
 const port = 8000;
 const app = new Application();
 
+app.addEventListener("error", (event) => {
+  console.log(event.error);
+});
+
 // Timing
 app.use(async (ctx, next) => {
   const start = Date.now();
