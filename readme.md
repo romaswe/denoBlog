@@ -11,6 +11,12 @@ It's not intended to work perfectly just a place to be able to test things.
 -   [ ] ESLint
 -   [ ] Pre-commit hooks
 -   [ ] ...
+-   [ ]
+
+# Configuration
+
+To run the project you need mongoDB running, and you can change url and credentials in `deno/database/mongo.ts`
+Then when the app is running you can visit `http://localhost:8000/` to see a list of post and create new ones.
 
 # Commands
 
