@@ -52,11 +52,6 @@ router.post(pathPrefix, async (ctx) => {
   }
 });
 
-router.put(pathPrefix + "/:postId", (ctx) => {
-  const { postId } = helpers.getQuery(ctx, { mergeParams: true });
-  ctx.response.body = `PUT HTTP method on posts/${postId} resource`;
-});
-
 router.delete(pathPrefix + "/:postId", async (ctx) => {
   const { postId } = helpers.getQuery(ctx, { mergeParams: true });
   const deleteCount = await postsCollection.deleteOne({
