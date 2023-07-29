@@ -1,3 +1,7 @@
+export interface PostList {
+  data: [PostContainer];
+}
+
 export interface PostContainer {
   _id?: string;
   date?: Date;

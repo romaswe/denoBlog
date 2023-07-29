@@ -1,1 +1,32 @@
-Welcome {{ name }}
+<h2>
+    {{pageName}}
+</h2>
+<div> 
+	{{#each jsonData.data}}
+		<div style="display: flex; flex-direction: column; border: 1px solid black; margin:1rem; padding: 1rem;">
+			<ul>
+				<li>Title: {{this.post.post.title}}</li>
+                <ul>
+                    <li>Date: {{this.post.date}}</li>
+                    <li>Short desc: {{this.post.post.shortDescription}}</li>
+                    <li>Post: {{this.post.post.post}}</li>
+                </ul>
+			</ul>
+            <form action="/deletepost" method="POST">
+                <input type = "hidden" name = "postId" value = "{{this._id}}" />
+                <button>Delete</button>
+            </form>
+		</div>
+	{{/each}}
+</div>
+
+<div style="padding: 1rem; width:20%">
+    <div> Create a post </div> 
+    <form action="/newpost" method="POST" style="display: flex; flex-direction: column; border: 1px solid black; margin:1rem; padding: 1rem;">
+        Title : <input type="text" name="title">
+        Short Description : <input type="text" name="shortDesc">
+        Post text : <input type="text" name="post">
+ 
+        <button style="margin: 1rem;;"> Create </button>
+    </form>
+</div>
