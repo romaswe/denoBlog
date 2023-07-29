@@ -37,7 +37,10 @@ router.post(pathPrefix, async (ctx) => {
     } else if (!post.date) {
       console.log(`No date on body, adding ${new Date(Date.now())} as date`);
       post.date = new Date(Date.now());
+
     }
+
+    // TODO: Add validator to check json-body
     const insertId = await postsCollection.insertOne({ post });
     console.log(insertId);
 

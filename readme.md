@@ -1,27 +1,56 @@
-# Run the program
+# Project
 
-deno run main.ts
+This is a project to test different technologies and learn how stuff works.
+It's not intended to work perfectly just a place to be able to test things.
 
-# Run the program and watch for file changes
+## Some of the things im trying
 
-deno task dev
+-   [x] Deno
+-   [ ] Service workers
+-   [ ] RSS feed
+-   [ ] ESLint
+-   [ ] Pre-commit hooks
+-   [ ] ...
 
-# Run the tests
+# Commands
 
-deno test
+### Run the program
 
-# Run the benchmarks
+`deno run main.ts`
 
-deno bench
+### Run the program and watch for file changes
 
-# format markdown and any compatible code samples
+`deno task dev`
 
-deno fmt readme.md
+### Run format and linter on all files in the project
 
-# format a directory of code
+`deno task format`
 
-deno fmt dist/
+### Run the program and watch for file changes (only the database)
 
-# format stdin
+`deno task database`
 
-cat squareRoot.ts | deno fmt –
+### Run the tests
+
+`deno test`
+
+### Run the benchmarks
+
+`deno bench`
+
+### format markdown and any compatible code samples
+
+`deno fmt readme.md`
+
+### format a directory of code
+
+`deno fmt dist/`
+
+### format stdin
+
+`cat squareRoot.ts | deno fmt –`
+
+# Known issues
+
+-   There is no validation on `Json-body` when creating a new post (We just save it to the database)
+-   There are no put method to update post's
