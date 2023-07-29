@@ -1,21 +1,21 @@
-import { MongoClient, ObjectId } from "../deps.ts";
+import { MongoClient } from "../deps.ts";
 import { PostSchema } from "../interfaces/databaseInterface.ts";
 
 const client = new MongoClient();
 const username = Deno.env.get("DATABASE_USER");
-const password = Deno.env.get("DATABASE_PASSWORD")
-const connectionURL = `mongodb://${username}:${password}@localhost:27017/?authMechanism=SCRAM-SHA-1`;
+const password = Deno.env.get("DATABASE_PASSWORD");
+const connectionURL =
+  `mongodb://${username}:${password}@localhost:27017/?authMechanism=SCRAM-SHA-1`;
 
 try {
-    await client.connect(
-        connectionURL,
-    );
-    console.log("Connected to database:");
-    console.log(connectionURL);
-
+  await client.connect(
+    connectionURL,
+  );
+  console.log("Connected to database:");
+  console.log(connectionURL);
 } catch (error) {
-    console.log("Fail to connect:");
-    console.log(error);
+  console.log("Fail to connect:");
+  console.log(error);
 }
 const db = client.database("denoBlog");
 

@@ -6,23 +6,23 @@ const router = new Router();
 const pathPrefix = "/api/posts";
 
 router.get(pathPrefix, async (ctx) => {
-  const posts = await postsCollection.find().toArray()
+  const posts = await postsCollection.find().toArray();
   console.log(`Returning ${posts.length} posts`);
   const body = {
-    data: posts
-  }
+    data: posts,
+  };
   ctx.response.body = body;
 });
 
 router.get(pathPrefix + "/:postId", async (ctx) => {
   const { postId } = helpers.getQuery(ctx, { mergeParams: true });
-  const posts = await postsCollection.findOne({ _id: new ObjectId(postId) })
+  const posts = await postsCollection.findOne({ _id: new ObjectId(postId) });
   console.log(`Returning post:`);
   console.log(posts);
 
   const body = {
-    data: posts
-  }
+    data: posts,
+  };
   ctx.response.body = body;
 });
 
@@ -34,26 +34,19 @@ router.post(pathPrefix, async (ctx) => {
 
     if (post._id) {
       throw new Error("Post already have a ID, did you want to patch?");
-    }
-    else if (!post.date) {
+    } else if (!post.date) {
       console.log(`No date on body, adding ${new Date(Date.now())} as date`);
-      post.date = new Date(Date.now())
+      post.date = new Date(Date.now());
     }
-
-    const insertId = await postsCollection.insertOne({ post })
+    const insertId = await postsCollection.insertOne({ post });
     console.log(insertId);
 
     ctx.response.body = `Post added: ${JSON.stringify(post)}`;
-
-
-
   } catch (error) {
     console.log(`Error: ${error}`);
-    ctx.response.status = 500
+    ctx.response.status = 500;
     ctx.response.body = `${error}`;
   }
-
-
 });
 
 router.put(pathPrefix + "/:postId", (ctx) => {
@@ -63,7 +56,9 @@ router.put(pathPrefix + "/:postId", (ctx) => {
 
 router.delete(pathPrefix + "/:postId", async (ctx) => {
   const { postId } = helpers.getQuery(ctx, { mergeParams: true });
-  const deleteCount = await postsCollection.deleteOne({ _id: new ObjectId(postId) })
+  const deleteCount = await postsCollection.deleteOne({
+    _id: new ObjectId(postId),
+  });
   console.log(`Deleted ${deleteCount} posts`);
   ctx.response.body = `Number of deleted posts: ${deleteCount}`;
 });
