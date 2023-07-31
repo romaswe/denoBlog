@@ -8,10 +8,7 @@ It's not intended to work perfectly just a place to be able to test things.
 -   [x] Deno
 -   [ ] Service workers
 -   [ ] RSS feed
--   [ ] ESLint
--   [ ] Pre-commit hooks
 -   [ ] ...
--   [ ]
 
 # Configuration
 
