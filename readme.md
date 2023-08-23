@@ -17,6 +17,8 @@ Then when the app is running you can visit `http://localhost:8000/` to see a lis
 
 # Commands
 
+## Deno
+
 ### Run the program
 
 `deno run main.ts`
@@ -52,6 +54,13 @@ Then when the app is running you can visit `http://localhost:8000/` to see a lis
 ### format stdin
 
 `cat squareRoot.ts | deno fmt –`
+
+## Vue
+
+`cd vue-project`
+`npm install`
+`npm run format`
+`npm run dev`
 
 # Known issues
 
